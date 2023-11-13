@@ -1,2 +1,2 @@
-# GameProjects
+# Game Projects
 my coding projects
