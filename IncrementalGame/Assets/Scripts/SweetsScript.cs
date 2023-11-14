@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Threading;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class SweetsScript : MonoBehaviour
@@ -11,28 +12,30 @@ public class SweetsScript : MonoBehaviour
     private int ownedSweets;
     [SerializeField] private TextMeshProUGUI priceText;
     [SerializeField] private TextMeshProUGUI ownedSweetsText;
-    [SerializeField] private TextMeshProUGUI currentProfitText;
+    [SerializeField] private TextMeshProUGUI lastChangeText;
     private PlayerScript playerScript;
 
-    private float boughtFor;
+    private float lastChange;
+    private bool lastChangeRel;
 
     private void Start()
     {
         playerScript = References.player.GetComponent<PlayerScript>();
-        boughtFor = 0;
+        lastChange = 0;
     }
     void Update()
     {
         priceText.SetText(sweetsPrice.ToString());
-        if (ownedSweets > 0)
-        {
-            currentProfitText.SetText(((int)(sweetsPrice*ownedSweets-boughtFor)*10).ToString() + "%");
-        }
-        else
-        {
-            currentProfitText.SetText(0.ToString());
-        }
+        lastChangeText.SetText(((int)lastChange).ToString() + "%");
         PriceFluctuation();
+        if (lastChangeRel)
+        {
+            lastChangeText.color = Color.green;
+        }
+        else if (!lastChangeRel)
+        {
+            lastChangeText.color = Color.red;
+        }
 
     }
 
@@ -50,11 +53,14 @@ public class SweetsScript : MonoBehaviour
             if (trend)
             {
                 sweetsPrice++;
-               
+                lastChange = 1/(sweetsPrice-1)*100;
+                lastChangeRel = true;
             }
             else
             {
                 sweetsPrice--;
+                lastChange = 1 / (sweetsPrice + 1)*100;
+                lastChangeRel = false;
                 if (sweetsPrice <= 1)
                 {
                     trendactive = false;
@@ -69,7 +75,6 @@ public class SweetsScript : MonoBehaviour
         else
         {
             trendTimer -= Time.deltaTime;
-            Debug.Log(trendTimer);
         }
     }
     public bool GenerateTrend()
@@ -107,7 +112,6 @@ public class SweetsScript : MonoBehaviour
             playerScript.AddToMoneyAmount(-sweetsPrice);
             ownedSweets++;
             ownedSweetsText.SetText(ownedSweets.ToString());
-            boughtFor += sweetsPrice;
             
         }
         
@@ -121,7 +125,7 @@ public class SweetsScript : MonoBehaviour
             sweetsPrice -= 1;
             ownedSweets = 0;
             ownedSweetsText.SetText(ownedSweets.ToString());
-            boughtFor = 0;
+            lastChange = 0;
         }
         
 

@@ -1438,7 +1438,7 @@ GameObject:
   - component: {fileID: 1067534751}
   - component: {fileID: 1067534750}
   m_Layer: 0
-  m_Name: ProfitPercentageHeading
+  m_Name: LastChangeHeading
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1461,8 +1461,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 81.6, y: 33.8}
-  m_SizeDelta: {x: 111.2125, y: 14.8724}
+  m_AnchoredPosition: {x: 82.6, y: 33.8}
+  m_SizeDelta: {x: 99.3099, y: 14.8724}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1067534750
 MonoBehaviour:
@@ -1484,7 +1484,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Current Profit:'
+  m_text: 'Last Change:'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8c9d8f14fef511f41be86c467d93522a, type: 2}
   m_sharedMaterial: {fileID: -1599480326408647219, guid: 8c9d8f14fef511f41be86c467d93522a, type: 2}
@@ -1889,7 +1889,7 @@ MonoBehaviour:
   sweetsPrice: 3
   priceText: {fileID: 1557279325}
   ownedSweetsText: {fileID: 737647873}
-  currentProfitText: {fileID: 1697919273}
+  lastChangeText: {fileID: 1697919273}
 --- !u!1 &1697919271
 GameObject:
   m_ObjectHideFlags: 0
@@ -1902,7 +1902,7 @@ GameObject:
   - component: {fileID: 1697919274}
   - component: {fileID: 1697919273}
   m_Layer: 0
-  m_Name: ProfitPercentageAmount
+  m_Name: LastChangeAmount
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1925,8 +1925,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 156.79303, y: 33.8}
-  m_SizeDelta: {x: 35.0057, y: 14.8724}
+  m_AnchoredPosition: {x: 154.077, y: 33.8}
+  m_SizeDelta: {x: 39.4762, y: 14.8724}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1697919273
 MonoBehaviour:
