@@ -80,6 +80,7 @@ public class PlantationHandler : MonoBehaviour
     public void IncreaseProductionWorth()
     {
         productionMultiplyer += .1f;
+        productionMultiplyer = Mathf.Round(productionMultiplyer * 10f) * 0.1f;
     }
     public void UnlockPlantation()
     {
